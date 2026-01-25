@@ -75,7 +75,13 @@ This repository includes everything you need:
 - `activity.md` - Activity logging template
 - `screenshots/` - Directory for visual verification
 
-This project is setup as a template so you can clone it and start building your own Ralph Wiggum projects quickly.
+---
+
+## Getting Started
+
+This project is setup as a template so you can clone it and start building your own Ralph Wiggum projects quickly. Create a new project by clicking on the "Use this template" button on GitHub to create a new repository based on this one.
+
+Then follow the steps below to create your MVP phase and start the Ralph Wiggum loop.
 
 ---
 
