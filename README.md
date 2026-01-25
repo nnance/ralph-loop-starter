@@ -2,12 +2,12 @@
 
 > **Credit:** This guide is inspired by [JeredBlu's Ralph Wiggum Guide](https://github.com/JeredBlu/guides/blob/main/Ralph_Wiggum_Guide.md) and [Cole Medin's work](https://github.com/coleam00/ralph-loop-quickstart). I've adapted and extended it to fit my specific workflow where I build autonomous development loops by:
 
-MVP Phase Creation and the initial Ralph Wiggum Loop
+**MVP Phase** Project creation and the initial Ralph Wiggum Loop
 
 - I Start all projects by creating the intitial MVP phase to ensure the project foundation is solid by generating a comprehensive PRD with the `/mvp:create-prd` command and the `/mvp:init-mvp` command.
 - Then running the Ralph Wiggum autonomous development loop with the `ralph.sh` bash script.
 
-Feature Development Phases and Ralph Wiggum Looping
+**Feature Development Phases** and Ralph Wiggum Looping
 
 - After the MVP phase, I create additional feature development phases as needed using the `/init-loop` command to generate new task plans based on a new set of features defined in the PRD.
 - Then I run the Ralph Wiggum loop again with `ralph.sh` to implement those features autonomously.
