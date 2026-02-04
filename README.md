@@ -65,7 +65,6 @@ This tool allows Claude to verify its work visually by taking screenshots and in
 
 This repository includes everything you need:
 
-- `.claude/settings.json` - Sandbox and permissions configuration
 - `.claude/commands/mvp/create-prd.md` - The `/mvp:create-prd` command for creating the MVP PRD
 - `.claude/commands/mvp/init-mvp.md` - The `/mvp:init-mvp` command for creating the MVP plan
 - `.claude/commands/init-loop.md` - The `/init-loop` command for feature phases
@@ -122,12 +121,7 @@ This interactive command will:
    - Build/lint commands
    - Project-specific instructions
 
-3. **Update `.claude/settings.json`** with permissions for:
-   - CLI tools required by your tech stack
-   - Any third-party CLIs needed
-   - Commands specific to your project
-
-4. **Create/verify `activity.md`** for logging progress
+3. **Create/verify `activity.md`** for logging progress
 
 ### Step 3: Verify Your Setup
 
@@ -144,12 +138,6 @@ After `/mvp:init-mvp` completes, **verify these files before running the loop**:
 
 - Is the start command correct for your tech stack?
 - Are build/lint commands accurate?
-
-**Check `.claude/settings.json`:**
-
-- Are all necessary CLI tools permitted?
-- Are sensitive files properly denied?
-- Does the agent have what it needs to work autonomously?
 
 This verification step is **critical**. The quality of your Ralph Wiggum run depends entirely on the quality of your PRD and configuration.
 
@@ -231,18 +219,6 @@ Tasks should be:
 
 Instructions for each iteration. References `@PLAN.md`, `PRD.md` and `@activity.md`. Updated by `/mvp:init-mvp` with your specific start commands.
 
-### `.claude/settings.json`
-
-Permissions and sandbox configuration. Updated by `/mvp:init-mvp` based on your tech stack to ensure the agent can run all necessary commands.
-
-Example permissions that might be added based on your PRD:
-
-- `Bash(prisma:*)` for Prisma CLI
-- `Bash(supabase:*)` for Supabase CLI
-- `Bash(firebase:*)` for Firebase CLI
-- `Bash(vercel:*)` for Vercel CLI
-- `Bash(docker compose:*)` for Docker workflows
-
 ### `ralph.sh`
 
 The bash loop script. Key features:
@@ -278,7 +254,7 @@ Ralph Wiggum is for proof of concepts, not the final application. Define the min
 
 ### 3. Verify Before Running
 
-Always review `PLAN.md`, `PROMPT.md`, and `.claude/settings.json` before starting the loop. Catching issues here saves iterations.
+Always review `PLAN.md` and `PROMPT.md` before starting the loop. Catching issues here saves iterations.
 
 ### 4. Start with Fewer Iterations
 
@@ -292,10 +268,6 @@ Watch the first 2-3 iterations to ensure things are working correctly. Check tha
 - Agent-browser can access localhost
 - Tasks are being marked as passing correctly
 - Activity log is being updated
-
-### 6. Use Sandboxing
-
-The default `.claude/settings.json` enables sandboxing. This provides isolation for long-running autonomous tasks. Don't disable it unless you have a specific reason.
 
 ---
 
@@ -312,12 +284,6 @@ The default `.claude/settings.json` enables sandboxing. This provides isolation 
 - Verify the dev server is running
 - Check that the port in `PROMPT.md` matches your actual port
 - Ensure agent-browser is installed correctly
-
-### Permissions errors
-
-- Review `.claude/settings.json`
-- Add missing CLI tools to the allow list
-- Check that the command pattern matches (e.g., `Bash(npm run:*)`)
 
 ### Context issues / hallucinations
 

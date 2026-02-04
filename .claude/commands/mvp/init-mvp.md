@@ -99,97 +99,9 @@ Read the current `PROMPT.md` file and update the following sections:
 
 Use the Edit tool to update these sections while preserving the rest of the template.
 
-## Phase 4: Update .claude/settings.json
+## Phase 4: Create Supporting Files
 
-**This step is critical for autonomous operation.** The agent must have permissions to run all CLI commands required by the project.
-
-Read the current `.claude/settings.json` file and update the `permissions.allow` array based on the PRD's tech stack and requirements.
-
-### Permission Mapping by Technology
-
-Add permissions based on what was chosen in the PRD:
-
-**Package Managers:**
-
-- npm: Already included (`Bash(npm run:*)`, `Bash(npm install:*)`, etc.)
-- pnpm: Already included (`Bash(pnpm:*)`)
-- yarn: Already included (`Bash(yarn:*)`)
-- bun: Already included (`Bash(bun:*)`)
-
-**Frameworks (add if using):**
-
-- Next.js: `Bash(next:*)`
-- Vite: `Bash(vite:*)`
-- Nuxt: `Bash(nuxt:*)`
-- SvelteKit: `Bash(svelte-kit:*)`
-- Astro: `Bash(astro:*)`
-- Remix: `Bash(remix:*)`
-
-**Databases & ORMs (add if using):**
-
-- Prisma: `Bash(prisma:*)`, `Bash(npx prisma:*)`
-- Drizzle: `Bash(drizzle-kit:*)`
-- TypeORM: `Bash(typeorm:*)`
-- Supabase: `Bash(supabase:*)`
-- PlanetScale: `Bash(pscale:*)`
-- MongoDB: `Bash(mongosh:*)`
-
-**Authentication (add if using):**
-
-- Auth.js/NextAuth: No additional CLI
-- Clerk: `Bash(clerk:*)`
-- Supabase Auth: Covered by `Bash(supabase:*)`
-- Firebase Auth: `Bash(firebase:*)`
-
-**Cloud/Hosting (add if using):**
-
-- Vercel: `Bash(vercel:*)`
-- Netlify: `Bash(netlify:*)`
-- Railway: `Bash(railway:*)`
-- Fly.io: `Bash(fly:*)`, `Bash(flyctl:*)`
-- AWS: `Bash(aws:*)` (be careful with this one)
-- Firebase: `Bash(firebase:*)`
-- Cloudflare: `Bash(wrangler:*)`
-
-**Testing (add if using):**
-
-- Vitest: `Bash(vitest:*)`
-- Jest: `Bash(jest:*)`
-- Playwright: `Bash(playwright:*)`
-- Cypress: `Bash(cypress:*)`
-
-**Other Common Tools:**
-
-- TypeScript: `Bash(tsc:*)`, `Bash(tsx:*)`
-- ESLint: `Bash(eslint:*)`
-- Prettier: `Bash(prettier:*)`
-- Tailwind: `Bash(tailwindcss:*)`
-- Biome: `Bash(biome:*)`
-- Turbo: `Bash(turbo:*)`
-- Docker Compose: `Bash(docker compose:*)`
-- Make: `Bash(make:*)`
-
-### How to Update settings.json
-
-1. Read the current `.claude/settings.json`
-2. Parse the existing `permissions.allow` array
-3. Add new permissions based on the tech stack chosen in the PRD
-4. Do NOT remove existing permissions (they are safe defaults)
-5. Do NOT add overly broad permissions like `Bash` without specifiers
-6. Write the updated settings.json
-
-**Example:** If the PRD specifies Next.js + Prisma + Vercel, add:
-
-```json
-"Bash(next:*)",
-"Bash(prisma:*)",
-"Bash(npx prisma:*)",
-"Bash(vercel:*)"
-```
-
-## Phase 5: Create Supporting Files
-
-After creating the PRD and updating PROMPT.md and settings.json:
+After creating the PRD and updating PROMPT.md, create any additional supporting files needed for Ralph Wiggum autonomous development.
 
 1. **Create activity.md** if it doesn't exist:
 
@@ -211,7 +123,7 @@ After creating the PRD and updating PROMPT.md and settings.json:
 
 2. Confirm to the user that all files are ready for Ralph Wiggum autonomous development.
 
-## Phase 6: Final Verification Prompt
+## Phase 5: Final Verification Prompt
 
 After completing all phases, present the user with a verification checklist:
 
@@ -227,12 +139,8 @@ Your Plan is ready! Before running ralph.sh, please verify:
 **PROMPT.md:**
 - [ ] Start command is correct for your tech stack
 - [ ] Build/lint commands are accurate
-- [ ] Veification steps are clear
+- [ ] Verification steps are clear
 - [ ] Project-specific instructions are included
-
-**.claude/settings.json:**
-- [ ] All necessary CLI tools are permitted
-- [ ] No overly broad permissions added
 
 Once verified, run: ./ralph.sh 20
 
